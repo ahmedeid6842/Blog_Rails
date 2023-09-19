@@ -9,8 +9,8 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema[7.0].define(version: 2023_09_19_194135) do
+# rubocop:disable Metrics/BlockLength
+ActiveRecord::Schema[7.0].define(version: 20_230_919_194_135) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_194135) do
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
+  # rubocop:enable Metrics/BlockLength
 
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id"
