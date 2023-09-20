@@ -34,6 +34,8 @@ This project is built using Ruby on Rails, a dynamic, open-source programming la
 ## Key Features <a name="key-features"></a>
 - [x] **Rails new (setup)**
 - [x] **Data Model**
+- [x] **processing data in models**
+- [x] **Added hooks for data models**
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
