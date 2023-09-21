@@ -17,4 +17,15 @@ RSpec.describe User, type: :model do
       expect(user_valid).to be_valid
     end
   end
+
+  describe "recent_posts" do
+    it "should return the most recent 3 posts" do
+      user = User.create(name: "ahmed eid", posts_counter: 0)
+      (1..6).each do |n|
+        user.posts.create(title: "Post #{n}", text: "Content", created_at: n.days.ago)
+      end
+
+      expect(user.recent_posts).to eq(user.posts.order(created_at: :desc).limit(3))
+    end
+  end
 end
