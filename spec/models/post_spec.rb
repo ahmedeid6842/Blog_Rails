@@ -54,4 +54,11 @@ RSpec.describe Post, type: :model do
       expect(post.recent_comments).to eq(post.comments.order(created_at: :desc).limit(5))
     end
   end
+
+  describe "update_user_posts_counter" do
+    it "should  the author's posts_counter equal 0 intially" do
+      user = User.create(name: "John Doe", posts_counter: 0)
+      expect(user.posts_counter).to eq(0)
+    end
+  end
 end
