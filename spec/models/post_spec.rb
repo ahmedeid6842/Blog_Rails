@@ -1,9 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Post, type: :model do
-  let(:user) {
-    User.create(name: "ahmed", photo: "https://unsplash.com/photos/F_-0BxGuVvo", bio: "A genius Backend developer from Egypt.")
-  }
+  let(:user) do
+    User.create(name: "ahmed", photo: "https://unsplash.com/photos/F_-0BxGuVvo",
+                bio: "A genius Backend developer from Egypt.")
+  end
 
   before do
     user
