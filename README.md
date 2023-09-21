@@ -13,9 +13,11 @@
     - [Prerequisites ](#prerequisites-)
   - [Usage ](#usage-)
   - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
   - [❓ FAQ ](#-faq-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show Your Support ](#️-show-your-support-)
+  - [🙏 Acknowledgements](#acknowledgements)
   - [📜 License ](#-license-)
 
 ## 📖 Blog_Rails <a name="about-project"></a>
@@ -34,6 +36,8 @@ This project is built using Ruby on Rails, a dynamic, open-source programming la
 ## Key Features <a name="key-features"></a>
 - [x] **Rails new (setup)**
 - [x] **Data Model**
+- [x] **processing data in models**
+- [x] **Added hooks for data models**
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -93,6 +97,15 @@ This project was developed by:
 - Twitter: [@ahmedeid2684](https://twitter.com/ahmedeid2684)
 - LinkedIn: [Ahmed Eid](https://www.linkedin.com/in/ameid/)
 
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Validate and model specs**
+- [ ] **Connect the model with frontend instead of using ruby console**
+- [ ] **Added unit test for created models**
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## ❓ FAQ <a name="faq"></a>
 
 *Q: Is there a plan to add more features to this application?*
@@ -112,6 +125,11 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 If you find this project helpful, consider giving it a ⭐️ to show your support!
 
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I would like to thank Microverse for giving me the opportunity to work on this project.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 ## 📜 License <a name="license"></a>
 
 This project is licensed under the MIT License - you can click here to have more details [MIT](./LICENSE) licensed.
