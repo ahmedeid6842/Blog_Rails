@@ -1,4 +1,54 @@
-<h1>User Details</h1>
 <div>
-    <h4>user info</h4>
+    <div>
+        <img src="<%= @user.photo %>" alt="<%= @user.name %>'s photo" class="w-100 h-100">
+    </div>
+
+    <h2>
+        <%= @user.name %>
+    </h2>
+
+    <button type="button">
+        Number of posts:
+        <span>
+            <%= @user.posts_counter ? @user.posts_counter : 0 %>
+        </span>
+    </button>
 </div>
+
+<div>
+    <h2>Bio</h2>
+    <p>
+        <%= @user.bio %>
+    </p>
+</div>
+
+<ul>
+    <% @user.posts.each do |post| %>
+        <li>
+            <h4>
+                <%= post.title %>
+            </h4>
+            <p>
+                <%= post.text %>
+            </p>
+            <div>
+                <button type="button">
+                    Comments:
+                    <span>
+                        <%= post.comments_counter ? post.comments_counter : 0 %>
+                    </span>
+                </button>
+                <button type="button">
+                    Likes:
+                    <span>
+                        <%= post.liked_counter ? post.likes_counter : 0 %>
+                    </span>
+                </button>
+            </div>
+        </li>
+        <% end %>
+</ul>
+
+<a href="/users/<%= @user.id %>/posts">
+    See All Posts
+</a>
