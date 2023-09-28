@@ -1,46 +1,46 @@
-<div>
-    <div>
+<div class="my-3 d-flex justify-content-around align-items-center flex-wrap gap-2">
+    <div class="border border-primary border-2 rounded-start" style="width: 100px; height: 100px;">
         <img src="<%= @user.photo %>" alt="<%= @user.name %>'s photo" class="w-100 h-100">
     </div>
 
-    <h2>
+    <h2 class="fw-bold">
         <%= @user.name %>
     </h2>
 
-    <button type="button">
+    <button type="button" class="btn btn-primary align-self-end">
         Number of posts:
-        <span>
+        <span class="badge bg-secondary">
             <%= @user.posts_counter ? @user.posts_counter : 0 %>
         </span>
     </button>
 </div>
 
-<div>
-    <h2>Bio</h2>
+<div class="bg-light p-5">
+    <h2 class="fw-bold">Bio</h2>
     <p>
         <%= @user.bio %>
     </p>
 </div>
 
-<ul>
+<ul class="list-group mt-5">
     <% @user.posts.each do |post| %>
-        <li>
-            <h4>
+        <li class="list-group-item my-3 d-flex flex-column gap-2 border-top">
+            <h4 class="fw-bold">
                 <%= post.title %>
             </h4>
             <p>
                 <%= post.text %>
             </p>
-            <div>
-                <button type="button">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-primary me-2">
                     Comments:
-                    <span>
+                    <span class="badge bg-secondary">
                         <%= post.comments_counter ? post.comments_counter : 0 %>
                     </span>
                 </button>
-                <button type="button">
+                <button type="button" class="btn btn-primary">
                     Likes:
-                    <span>
+                    <span class="badge bg-secondary">
                         <%= post.liked_counter ? post.likes_counter : 0 %>
                     </span>
                 </button>
@@ -49,6 +49,6 @@
         <% end %>
 </ul>
 
-<a href="/users/<%= @user.id %>/posts">
+<a href="/users/<%= @user.id %>/posts" class="btn btn-secondary w-100 my-3">
     See All Posts
 </a>
