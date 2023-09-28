@@ -16,6 +16,7 @@
   </button>
 </div>
 
+
 <ul class="list-group mt-5">
   <% @user.posts.each do |post| %>
     <li class="list-group-item my-3 border-top">
@@ -41,6 +42,18 @@
               </span>
             </button>
           </div>
+          <h4 class="fw-bold"> Comments </h4>
+          <ul class="list-group">
+            <% if post.comments.length> 0 %>
+              <% post.recent_comments.each do |comment| %>
+                <li class="list-group-item">
+                  <%= comment.author.name %>: <%= comment.text %>
+                </li>
+                <% end %>
+                  <% else %>
+                    <li class="list-group-item">No comments</li>
+                    <% end %>
+          </ul>
         </div>
       </a>
     </li>
