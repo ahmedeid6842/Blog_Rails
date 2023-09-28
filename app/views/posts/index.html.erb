@@ -1,8 +1,16 @@
-<h1>List of Posts</h1>
-<div>
-  <ul>
-    <li>post 1</li>
-    <li>post 2</li>
-    <li>post 3</li>
-  </ul>
+<div class="my-3 d-flex justify-content-around align-items-center flex-wrap gap-2">
+  <a href="/users/<%= @user.id %>">
+    <img src="<%= @user.photo %>" alt="<%= @user.name %>'s photo" class="img-fluid rounded-start" style="width: 100px; height: 100px;">
+  </a>
+  
+  <h2 class="fw-bold">
+    <%= @user.name %>
+  </h2>
+  
+  <button type="button" class="btn btn-primary align-self-end">
+    Number of posts:
+    <span class="badge bg-secondary">
+      <%= @user.posts_counter ? @user.posts_counter : 0 %>
+    </span>
+  </button>
 </div>
