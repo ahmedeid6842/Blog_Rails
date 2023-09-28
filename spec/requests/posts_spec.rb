@@ -4,9 +4,9 @@ RSpec.describe PostsController, type: :request do
   describe "GET #index" do
     user = FactoryBot.create(:user, name: "ahmed", photo: "https://unsplash.com/photos/F_-0BxGuVvo",
                                     bio: "A genius Backend developer from Egypt.", posts_counter: 0)
-    post1 = FactoryBot.create(:post, author: user, title: "Post1", liked_counter: 0, comments_counter: 0)
-    post2 = FactoryBot.create(:post, author: user, title: "Post2", liked_counter: 0, comments_counter: 0)
-    post3 = FactoryBot.create(:post, author: user, title: "Post3", liked_counter: 0, comments_counter: 0)
+    FactoryBot.create(:post, author: user, title: "Post1", liked_counter: 0, comments_counter: 0)
+    FactoryBot.create(:post, author: user, title: "Post2", liked_counter: 0, comments_counter: 0)
+    FactoryBot.create(:post, author: user, title: "Post3", liked_counter: 0, comments_counter: 0)
 
     it "returns a success response" do
       get "/users/#{user.id}/posts"
