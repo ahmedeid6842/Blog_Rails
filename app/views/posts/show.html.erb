@@ -12,12 +12,12 @@
                     <%= @post.comments_counter ? @post.comments_counter : 0 %>
                 </span>
             </button>
-            <button type="button" class="btn btn-primary">
-                <i class="fas fa-thumbs-up">Likes:</i>
-                <span class="badge bg-light text-dark">
-                    <%= @post.liked_counter ? @post.liked_counter : 0 %>
-                </span>
-            </button>
+            <%= form_with url: "/users/#{@post.author.id}/posts/#{@post.id}/likes" do |form| %>
+                <%= form.submit "Like" , class: "btn btn-primary mt-2" %>
+                    <span class="badge bg-secondary p-2">
+                        <%= @post.liked_counter ? @post.liked_counter : 0 %>
+                    </span>
+                    <% end %>
         </div>
     </div>
 
