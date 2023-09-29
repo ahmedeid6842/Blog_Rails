@@ -1,8 +1,24 @@
-<h1>List of Users</h1>
-<div>
-  <ul>
-    <li>user 1</li>
-    <li>user 2</li>
-    <li>user 3</li>
+<div class="container">
+  <h1>Users</h1>
+
+  <ul class="list-group mt-5">
+    <% @users.each do |user| %>
+      <li class="list-group-item my-3 d-flex flex-wrap border-top">
+        <div class="border border-blue border-square rounded-start" style="width: 100px; height: 100px;">
+          <img src="<%= user.photo %>" alt="<%= user.name %>'s photo" class="w-100 h-100">
+        </div>
+        <a href="/users/<%= user.id %>" class="d-flex align-items-center flex-grow-1 ms-3">
+          <h2>
+            <%= user.name %>
+          </h2>
+        </a>
+        <button type="button" class="btn btn-primary">
+          Number of posts:
+          <span class="badge bg-secondary">
+            <%= user.posts_counter ? user.posts_counter : 0 %>
+          </span>
+        </button>
+      </li>
+    <% end %>
   </ul>
 </div>

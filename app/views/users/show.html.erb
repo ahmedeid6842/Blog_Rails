@@ -1,4 +1,54 @@
-<h1>User Details</h1>
-<div>
-    <h4>user info</h4>
+<div class="my-3 d-flex justify-content-around align-items-center flex-wrap gap-2">
+    <div class="border border-primary border-2 rounded-start" style="width: 100px; height: 100px;">
+        <img src="<%= @user.photo %>" alt="<%= @user.name %>'s photo" class="w-100 h-100">
+    </div>
+
+    <h2 class="fw-bold">
+        <%= @user.name %>
+    </h2>
+
+    <button type="button" class="btn btn-primary align-self-end">
+        Number of posts:
+        <span class="badge bg-secondary">
+            <%= @user.posts_counter ? @user.posts_counter : 0 %>
+        </span>
+    </button>
 </div>
+
+<div class="bg-light p-5">
+    <h2 class="fw-bold">Bio</h2>
+    <p>
+        <%= @user.bio %>
+    </p>
+</div>
+
+<ul class="list-group mt-5">
+    <% @user.recent_posts.each do |post| %>
+        <li class="list-group-item my-3 d-flex flex-column gap-2 border-top">
+            <h4 class="fw-bold">
+                <%= post.title %>
+            </h4>
+            <p>
+                <%= post.text %>
+            </p>
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-primary me-2">
+                    Comments:
+                    <span class="badge bg-secondary">
+                        <%= post.comments_counter ? post.comments_counter : 0 %>
+                    </span>
+                </button>
+                <button type="button" class="btn btn-primary">
+                    Likes:
+                    <span class="badge bg-secondary">
+                        <%= post.liked_counter ? post.likes_counter : 0 %>
+                    </span>
+                </button>
+            </div>
+        </li>
+        <% end %>
+</ul>
+
+<a href="/users/<%= @user.id %>/posts" class="btn btn-secondary w-100 my-3">
+    See All Posts
+</a>

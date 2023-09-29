@@ -1,4 +1,46 @@
-<h1>Post Details</h1>
-<div>
-    <h4>posts info</h4>
+<div class="my-3 border border-primary rounded p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fw-bold mb-0">
+            <%= @post.title %> by <a href="/users/<%= @post.author.id %>">
+                    <%= @post.author.name %>
+                </a>
+        </h2>
+        <div>
+            <button type="button" class="btn btn-primary me-2">
+                <i class="fas fa-comment">Comments:</i>
+                <span class="badge bg-light text-dark">
+                    <%= @post.comments_counter ? @post.comments_counter : 0 %>
+                </span>
+            </button>
+            <button type="button" class="btn btn-primary">
+                <i class="fas fa-thumbs-up">Likes:</i>
+                <span class="badge bg-light text-dark">
+                    <%= @post.liked_counter ? @post.liked_counter : 0 %>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <p class="mb-4">
+        <%= @post.text %>
+    </p>
+
+    <div>
+        <h4 class="fw-bold mb-3">Comments</h4>
+
+        <ul class="list-group">
+            <% if @post.comments.length> 0 %>
+                <% @post.comments.each do |comment| %>
+                    <li class="list-group-item py-2">
+                        <span class="fw-bold">
+                            <%= comment.author.name %>:
+                        </span>
+                        <%= comment.text %>
+                    </li>
+                    <% end %>
+                        <% else %>
+                            <li class="list-group-item">No comments</li>
+                            <% end %>
+        </ul>
+    </div>
 </div>

@@ -1,8 +1,61 @@
-<h1>List of Posts</h1>
-<div>
-  <ul>
-    <li>post 1</li>
-    <li>post 2</li>
-    <li>post 3</li>
-  </ul>
+<div class="my-3 d-flex justify-content-around align-items-center flex-wrap gap-2">
+  <a href="/users/<%= @user.id %>">
+    <img src="<%= @user.photo %>" alt="<%= @user.name %>'s photo" class="img-fluid rounded-start"
+      style="width: 100px; height: 100px;">
+  </a>
+
+  <h2 class="fw-bold">
+    <%= @user.name %>
+  </h2>
+
+  <button type="button" class="btn btn-primary align-self-end">
+    Number of posts:
+    <span class="badge bg-secondary">
+      <%= @user.posts_counter ? @user.posts_counter : 0 %>
+    </span>
+  </button>
 </div>
+
+
+<ul class="list-group mt-5">
+  <% @user.posts.each do |post| %>
+    <li class="list-group-item my-3 border-top">
+      <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="text-reset text-decoration-none">
+        <div class="d-flex flex-column gap-2">
+          <h4 class="fw-bold">
+            <%= post.title %>
+          </h4>
+          <p>
+            <%= post.text %>
+          </p>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-primary me-2">
+              Comments:
+              <span class="badge bg-secondary">
+                <%= post.comments_counter ? post.comments_counter : 0 %>
+              </span>
+            </button>
+            <button type="button" class="btn btn-primary">
+              Likes:
+              <span class="badge bg-secondary">
+                <%= post.liked_counter ? post.liked_counter : 0 %>
+              </span>
+            </button>
+          </div>
+          <h4 class="fw-bold"> Comments </h4>
+          <ul class="list-group">
+            <% if post.comments.length> 0 %>
+              <% post.recent_comments.each do |comment| %>
+                <li class="list-group-item">
+                  <%= comment.author.name %>: <%= comment.text %>
+                </li>
+                <% end %>
+                  <% else %>
+                    <li class="list-group-item">No comments</li>
+                    <% end %>
+          </ul>
+        </div>
+      </a>
+    </li>
+    <% end %>
+</ul>
