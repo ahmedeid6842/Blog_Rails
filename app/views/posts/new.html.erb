@@ -9,6 +9,11 @@
                 <%= form.text_field :title, class:"form-control", placeholder:"Enter the Title of the Post" %>
         </div>
 
+        <div class="mb-3">
+            <% form.label :text %>
+                <%= form.text_field :text, class:"form-control", placeholder:"Enter the Text of the Post" %>
+        </div>
+
         <div>
             <%= form.submit class:'btn btn-primary' %>
         </div>
