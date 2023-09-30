@@ -1,6 +1,12 @@
 <div class="container">
   <h1>Users</h1>
 
+  <div class="bg-light p-3 rounded">
+    <h2>Current User: <%= @current_user.present? ? @current_user.name : "no user exist in DB" %>
+    </h2>
+    <%= link_to @current_user.present? ? 'Create Post' : 'To create a post You should create a user first', @current_user.present? ? "/users/#{@current_user.id}/posts/new" : "#", class: 'btn btn-primary' %>
+  </div>
+
   <ul class="list-group mt-5">
     <% @users.each do |user| %>
       <li class="list-group-item my-3 d-flex flex-wrap border-top">
@@ -19,6 +25,6 @@
           </span>
         </button>
       </li>
-    <% end %>
+      <% end %>
   </ul>
 </div>

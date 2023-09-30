@@ -12,12 +12,12 @@
                     <%= @post.comments_counter ? @post.comments_counter : 0 %>
                 </span>
             </button>
-            <button type="button" class="btn btn-primary">
-                <i class="fas fa-thumbs-up">Likes:</i>
-                <span class="badge bg-light text-dark">
-                    <%= @post.liked_counter ? @post.liked_counter : 0 %>
-                </span>
-            </button>
+            <%= form_with url: "/users/#{@post.author.id}/posts/#{@post.id}/likes" do |form| %>
+                <%= form.submit "Like" , class: "btn btn-primary mt-2" %>
+                    <span class="badge bg-secondary p-2">
+                        <%= @post.liked_counter ? @post.liked_counter : 0 %>
+                    </span>
+                    <% end %>
         </div>
     </div>
 
@@ -42,5 +42,21 @@
                             <li class="list-group-item">No comments</li>
                             <% end %>
         </ul>
+    </div>
+
+    <div class="mt-5">
+        <h4 class="mb-3">Add Comment</h4>
+        <%= form_with(model: [@post.author, @post.author.comments.build],
+            url: "/users/#{@post.author.id}/posts/#{@post.id}/comments" ) do |form| %>
+
+            <div class="mb-3">
+                <%= form.text_field :text, class: "form-control" , placeholder: "Type a comment" %>
+            </div>
+
+            <div>
+                <%= form.submit class: "btn btn-primary" %>
+            </div>
+
+            <% end %>
     </div>
 </div>
