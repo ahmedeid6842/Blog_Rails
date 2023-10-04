@@ -22,9 +22,12 @@
     <li class="list-group-item my-3 border-top">
       <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="text-reset text-decoration-none">
         <div class="d-flex flex-column gap-2">
-          <h4 class="fw-bold">
-            <%= post.title %>
-          </h4>
+          <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="text-reset text-decoration-none">
+
+            <h4 class="fw-bold">
+              <%= post.title %>
+            </h4>
+          </a>
           <p>
             <%= post.text %>
           </p>
@@ -59,8 +62,4 @@
     </li>
     <% end %>
 </ul>
-
-<div class="btn btn-primary">
-  <button type="button">Pagination</button>
-</div>
-
+<button class="btn btn-primary">Pagination</button>
