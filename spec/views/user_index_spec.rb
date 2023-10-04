@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.describe "User index page", type: :feature do
   before(:each) do
-    @user = FactoryBot.create(:user, id: 1, name: "ahmed", photo: "https://unsplash.com/photos/F_-0BxGuVvo",
+    @user = FactoryBot.create(:user, name: "ahmed", photo: "https://unsplash.com/photos/F_-0BxGuVvo",
                                      bio: "A genius Backend developer from Egypt.", posts_counter: 0)
-    @user2 = FactoryBot.create(:user, id: 2, name: "mohamed", photo: "https://unsplash.com/photos/F_-0BxGuVvo",
+    @user2 = FactoryBot.create(:user, name: "mohamed", photo: "https://unsplash.com/photos/F_-0BxGuVvo",
                                       bio: "A genius Full stack developer from Egypt.", posts_counter: 0)
     visit "/users"
   end
@@ -24,7 +24,7 @@ RSpec.describe "User index page", type: :feature do
 
   it "redirects to the user show page when clicking on a user" do
     users = all(".flex-grow-1")
-    users.last.click
-    expect(page).to have_current_path user_path(@user2)
+    users[1].click # Click on the second user, index 1
+    expect(page).to have_current_path("/users/1")
   end
 end
