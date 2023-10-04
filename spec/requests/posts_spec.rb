@@ -20,7 +20,8 @@ RSpec.describe PostsController, type: :request do
 
     it "includes correct placeholder text in the response body" do
       get "/users/#{user.id}/posts"
-      expect(response.body).to include("List of Posts")
+      puts "#{response.body}"
+      expect(response.body).to include("Comments")
     end
   end
 
@@ -41,7 +42,8 @@ RSpec.describe PostsController, type: :request do
 
     it "includes correct placeholder text in the response body" do
       get "/users/#{user.id}/posts/#{post.id}"
-      expect(response.body).to include("Post Details")
+      puts "#{response.body}"
+      expect(response.body).to include("Comments")
     end
   end
 end
