@@ -25,9 +25,12 @@
 <ul class="list-group mt-5">
     <% @user.recent_posts.each do |post| %>
         <li class="list-group-item my-3 d-flex flex-column gap-2 border-top">
-            <h4 class="fw-bold">
-                <%= post.title %>
-            </h4>
+            <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="text-reset text-decoration-none">
+
+                <h4 class="fw-bold">
+                    <%= post.title %>
+                </h4>
+            </a>
             <p>
                 <%= post.text %>
             </p>

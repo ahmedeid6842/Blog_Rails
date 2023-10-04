@@ -97,6 +97,12 @@ This project was developed by:
 - Twitter: [@ahmedeid2684](https://twitter.com/ahmedeid2684)
 - LinkedIn: [Ahmed Eid](https://www.linkedin.com/in/ameid/)
 
+👤 **Hernán Güemes**
+
+- GitHub: [@githubhandle](https://github.com/HFG43)
+- Twitter: [@twitterhandle](https://twitter.com/HFG_43)
+- LinkedIn: [@Hernán Güemes](linkedin.com/in/hernanguemes)
+
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Validate and model specs**
