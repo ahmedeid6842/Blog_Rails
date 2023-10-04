@@ -1,4 +1,16 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :confirmable
+
+  # Add the following lines manually
+  before_create :generate_confirmation_token
+
+  protected
+
+  def generate_confirmation_token
+    self.confirmation_token = SecureRandom.urlsafe_base64
+  end
+
   has_many :posts, foreign_key: :author_id
   has_many :likes, foreign_key: :author_id
   has_many :comments, foreign_key: :author_id
