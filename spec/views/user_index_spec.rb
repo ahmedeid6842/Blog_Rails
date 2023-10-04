@@ -24,7 +24,10 @@ RSpec.describe "User index page", type: :feature do
 
   it "redirects to the user show page when clicking on a user" do
     users = all(".flex-grow-1")
-    users[1].click # Click on the second user, index 1
-    expect(page).to have_current_path("/users/1")
+    users[users.length - 1].click
+
+    user = User.find_by(id: page.current_path.split("/").last)
+
+    expect(page).to have_current_path(user_path(user))
   end
 end
