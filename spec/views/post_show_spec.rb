@@ -6,7 +6,8 @@ describe "Posts show page", type: :feature do
                                      bio: "A genius Backend developer from Egypt.", posts_counter: 0)
     @user2 = FactoryBot.create(:user, name: "mohamed", photo: "https://unsplash.com/photos/F_-0BxGuVvo",
                                       bio: "A genius Full stack developer from Egypt.", posts_counter: 0)
-    @post = FactoryBot.create(:post, author: @user, title: "Sample Title1", text: "this is my text", liked_counter: 0, comments_counter: 0)
+    @post = FactoryBot.create(:post, author: @user, title: "Sample Title1", text: "this is my text", liked_counter: 0,
+                                     comments_counter: 0)
     FactoryBot.create(:comment, author: @user2, post: @post, text: "Comment 1")
     FactoryBot.create(:comment, author: @user2, post: @post, text: "Comment 2")
 

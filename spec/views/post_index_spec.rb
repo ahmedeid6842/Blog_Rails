@@ -1,11 +1,11 @@
-
 require "rails_helper"
 
 describe "Posts index page", type: :feature do
   before(:each) do
     @user = FactoryBot.create(:user, name: "ahmed", photo: "https://unsplash.com/photos/F_-0BxGuVvo",
                                      bio: "A genius Backend developer from Egypt.", posts_counter: 0)
-    @post = FactoryBot.create(:post, author: @user, title: "Sample Title1", text: "this is my text", liked_counter: 0, comments_counter: 0)
+    @post = FactoryBot.create(:post, author: @user, title: "Sample Title1", text: "this is my text", liked_counter: 0,
+                                     comments_counter: 0)
     FactoryBot.create(:comment, author: @user, post: @post, text: "Comments")
     FactoryBot.create(:comment, author: @user, post: @post, text: "Comment 2")
     visit user_posts_path(@user)
