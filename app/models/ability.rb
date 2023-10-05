@@ -6,7 +6,7 @@ class Ability
     if user.role == "admin"
       can :destroy, Post
     else
-      can :destroy, Post, user_id: user.id
+      can :destroy, Post, author_id: user.id
     end
   end
 end
