@@ -11,10 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 # rubocop:disable Metrics/BlockLength
 
-ActiveRecord::Schema[7.0].define(version: 20_231_004_215_220) do
+ActiveRecord::Schema[7.0].define(version: 20_231_005_164_321) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
   # rubocop:enable Metrics/BlockLength
+  enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id"
@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 20_231_004_215_220) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "reconfirmable"
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
