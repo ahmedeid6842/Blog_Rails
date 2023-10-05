@@ -59,4 +59,10 @@
 
             <% end %>
     </div>
+
+    <% if can?(:destroy, @post) %>
+        <%= form_tag delete_post_path(@post.author, @post), method: :delete do %>
+            <%= button_tag 'Delete' , type: :submit, class: 'btn btn-danger btn-lg' %>
+                <% end %>
+                    <% end %>
 </div>
