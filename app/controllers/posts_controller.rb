@@ -25,6 +25,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    def destroy
+      @post = Post.find(params[:id])
+
+      authorize! :destroy, @post
+
+      if @post.destroy
+        redirect_to user_posts_path(@post.author), notice: "Post deleted successfully."
+      else
+        flash[:alert] = "You are not authorized to delete that post."
+        render :show
+      end
+    end
+  end
+
   private
 
   def post_params
