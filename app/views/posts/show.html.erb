@@ -36,6 +36,11 @@
                             <%= comment.author.name %>:
                         </span>
                         <%= comment.text %>
+                            <% if can?(:destroy, comment) %>
+                                <%= form_tag delete_comment_path(@post.author, @post,comment), method: :delete do %>
+                                    <%= button_tag 'Delete Comment' , type: :submit, class: 'btn btn-danger btn-lg' %>
+                                        <% end %>
+                                            <% end %>
                     </li>
                     <% end %>
                         <% else %>
