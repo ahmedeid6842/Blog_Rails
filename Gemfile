@@ -57,6 +57,7 @@ group :development, :test do
   gem "letter_opener"
   gem "rails-controller-testing"
   gem "rspec-rails"
+  gem "cancancan"
 end
 
 group :development do
