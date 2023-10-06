@@ -19,4 +19,12 @@ Rails.application.routes.draw do
 
   get "/users/:user_id/posts/:id", to: "posts#show", as: "user_post"
   delete "/users/:user_id/posts/:id", to: "posts#destroy", as: "delete_post"
+
+  namespace :api do
+    resources :users do
+      resources :posts, only: [:index] do
+        resources :comments, only: %i[index create]
+      end
+    end
+  end
 end

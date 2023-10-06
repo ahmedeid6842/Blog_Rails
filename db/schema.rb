@@ -14,6 +14,7 @@
 ActiveRecord::Schema[7.0].define(version: 20_231_005_164_321) do
   # These are extensions that must be enabled in order to support this database
   # rubocop:enable Metrics/BlockLength
+
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
